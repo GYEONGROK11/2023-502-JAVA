@@ -16,6 +16,6 @@ public class RandomValMission2 {
                 break;
             }
         }
-        System.out.println("끝");
+        System.out.println("끝~~~~~~");
     }
 }
