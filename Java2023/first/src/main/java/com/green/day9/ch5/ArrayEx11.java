@@ -28,14 +28,20 @@ public class ArrayEx11 {
         cntArr[3]++;
         System.out.println(Arrays.toString(cntArr));
          */
-
-
+        /*
         for (int i = 0; i < LEN; i++) {
             int val = numArr[i];
             cntArr[val]++;
 
             //cntArr[numArr[i]]++;
         }
+        */
+
+        for(int num : numArr){
+            cntArr[num]++;
+        }
+
+
         System.out.printf(Arrays.toString(cntArr));
         System.out.println();
 

@@ -12,17 +12,17 @@ public class ArrayEx16 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        String[] str = new String[3];
+        String[] strArr = new String[3];
 
-        for (int i =0; i< str.length; i++){
+        for (int i =0; i< strArr.length; i++){
             System.out.print("문자를 입력하세요>>");
             String val = scan.nextLine();
-            str[i] = val;
+            strArr[i] = val;
         }
 
 
-        for(String str1 : str){    //향상된 for 문  foreach
-            System.out.println(str1);
+        for(String str : strArr){    //향상된 for 문  foreach
+            System.out.print(str);
         }
 
     }
