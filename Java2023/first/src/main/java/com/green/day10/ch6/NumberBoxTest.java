@@ -1,6 +1,6 @@
 package com.green.day10.ch6;
 
-public class NumberBoxTest {
+public class NumberBoxTest {// NumberBox = 정의  NumberBoxTest = 호출
     public static void main(String[] args) {
         NumberBox nb1 = new NumberBox();
         nb1.sum(10,20);

@@ -1,7 +1,7 @@
 package com.green.day10.ch6;
 
 public class Tv {// Tv = 정의  TvTest = 호출
-    String color;  //속성(멤버필드) -property
+    String color;  //속성(멤버필드,property,전역변수)
     boolean power;
     int channel;
     //void(리턴타입) a(메소드명) ()(파라미터-매개변수)

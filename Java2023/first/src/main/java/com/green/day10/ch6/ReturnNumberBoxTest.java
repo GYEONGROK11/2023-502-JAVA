@@ -6,7 +6,7 @@ public class ReturnNumberBoxTest {
 
         rnb.sum(10,20);//자체가 30이됨
         int r1 = rnb.sum(10,20);
-        System.out.println("r1 : "+r1);
+        System.out.printf("r1 : "+r1);
         int r2 = rnb.sum(20,30);
         System.out.println("r2 : "+r2);
         System.out.println("---끝---");

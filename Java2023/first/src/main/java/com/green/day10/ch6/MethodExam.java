@@ -5,6 +5,7 @@ import java.util.Random;
 public class MethodExam {
     void checkZero(int n) {
         System.out.println(n == 0 ? "0입니다" : "0이 아닙니다");
+        return;
     }
 
     int randomValFromTo(int n1, int n2) {
