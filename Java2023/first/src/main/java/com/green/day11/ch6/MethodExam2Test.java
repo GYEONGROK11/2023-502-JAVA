@@ -18,5 +18,18 @@ public class MethodExam2Test {
         8점이상 + 3점이하 -
         D학점은 없음
          */
+        String season = me2.getSeason(10);
+        System.out.printf("%s\n",season);
+        String season1 = me2.getSeason(3);
+        System.out.printf("%s\n",season1);
+        String season2 = me2.getSeason(12);
+        System.out.printf("%s\n",season2);
+        /*
+        345 봄
+        678 여름
+        91011가을
+        1212겨울
+         */
+
     }
 }
