@@ -34,6 +34,7 @@ public class MethodExam3 {
 
     public static void main(String[] args) {
         MethodExam3 me3 = new MethodExam3();
+        me3.sumText("123123");
         int sum = me3.sumText("123123");
         System.out.println(sum);
         int sum1 = me3.sumText1("123123");

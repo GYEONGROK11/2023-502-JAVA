@@ -6,7 +6,7 @@ public class DiffPriRef {//기본형과 참조형의 차이점
         changeVal(num);
         System.out.println("num : "+num);
 
-        NumBox nb = new NumBox();
+        NumBox nb = new NumBox();// 넘박스 객체의 주소값을 담을수 있다(nb) == 객체생성키워드
         System.out.println("(1)nb.num : "+nb.num);
         nb.num = 30;
         System.out.println("(2)nb.num : "+nb.num);
