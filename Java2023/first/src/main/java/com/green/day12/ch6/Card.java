@@ -4,8 +4,9 @@ public class Card {
     public String kind;//속성
     public String number; //속성
 
+
     public void printYourSelf(){
-        System.out.printf("%s (%s)\n",kind,number);
+        System.out.printf("%s %s)\n",kind,number);
 
     }//메소드
     public int getScore() {
