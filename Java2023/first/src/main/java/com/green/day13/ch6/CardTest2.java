@@ -45,7 +45,6 @@ public class CardTest2 {
                 c.kind = kinds[i];
                 c.number = number;
                 cards[cnt++] = c;
-
             }
         }
         return cards;
