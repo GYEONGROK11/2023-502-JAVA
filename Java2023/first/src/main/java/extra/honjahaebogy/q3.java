@@ -1,4 +1,4 @@
-package com.green.honjahaebogy;
+package extra.honjahaebogy;
 
 public class q3 {
     /* 3,6,9게임

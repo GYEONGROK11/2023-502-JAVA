@@ -1,4 +1,4 @@
-package com.green.honjahaebogy;
+package extra.honjahaebogy;
 
 import java.util.Scanner;
 
