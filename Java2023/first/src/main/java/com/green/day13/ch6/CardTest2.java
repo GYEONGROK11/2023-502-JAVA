@@ -7,11 +7,11 @@ import java.util.Arrays;
 public class CardTest2 {
     public static void main(String[] args) {
         //Card c = new Card();
-        Card[] cards = makeCards();
+        Card[] cards = makeCards();  //객체화를 안했기 때문에 스태틱 메소드라는것을 알수있음
 
         System.out.println(cards.length);
 
-        for (Card c: cards) {
+        for (Card c: cards) {  //c는 Card 타입이므로
             c.printYourSelf();
         }
     }

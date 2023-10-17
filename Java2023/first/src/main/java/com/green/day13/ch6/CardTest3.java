@@ -13,6 +13,37 @@ class Card {
         System.out.printf("%s-%s\n", patteun, denomination);
     }
 
+
+}
+
+public class CardTest3 {
+    public static void main(String[] args) {
+
+        Card[] cards = CardTest3.makeCards1();
+
+        for (Card c : cards) {
+            c.printYourSelf();
+        }
+
+        for (int i = 0; i < cards.length; i++) {
+            System.out.println(cards[i].patteun + "-" + cards[i].denomination);
+        }
+    }
+
+    public static Card[] makeCards2() {
+        Card[] cArr = new Card[52];
+        String[] kinds = {"Spade", "Heart", "Diamond", "Club"};
+
+        for (int i = 0; i < cArr.length; i++) {
+            String patteun = kinds[i / 13];
+            String denomination = getNumverFromInt((i + 1) % 13);
+            cArr[i] = new Card();
+            Card c = cArr[i];
+            cArr[i].patteun = patteun;
+            cArr[i].denomination = denomination;
+        }
+        return cArr;
+    }
     String getNumverFromInt1(int num) {
         switch (num) {
             case 1:
@@ -48,32 +79,5 @@ class Card {
         return cArr;
     }
 
-    public static Card[] makeCards2() {
-        Card[] cArr = new Card[52];
-        String[] kinds = {"Spade", "Heart", "Diamond", "Club"};
 
-        for (int i = 0; i < cArr.length; i++) {
-            String patteun = kinds[i / 13];
-            String denomination = getNumverFromInt((i + 1) % 13);
-            cArr[i] = new Card();
-            cArr[i].patteun = patteun;
-            cArr[i].denomination = denomination;
-        }
-        return cArr;
-    }
-}
-
-public class CardTest3 {
-    public static void main(String[] args) {
-
-        Card[] cards = Card.makeCards1();
-
-        for (Card c : cards) {
-            c.printYourSelf();
-        }
-
-        for (int i = 0; i < cards.length; i++) {
-            System.out.println(cards[i].patteun + "-" + cards[i].denomination);
-        }
-    }
 }
