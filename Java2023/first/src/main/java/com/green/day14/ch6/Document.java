@@ -5,7 +5,7 @@ public class Document {
     String name;
 
     {
-        ++cnt;
+        cnt++;
     }
 
     public Document() {
