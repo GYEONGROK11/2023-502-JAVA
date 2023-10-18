@@ -4,16 +4,19 @@ public class Document {
     static int cnt;
     String name;
 
+    {
+        ++cnt;
+    }
 
     public Document() {
-        this(String.format("제목없음%d", ++cnt));
+        this.name = String.format("제목없음%d", cnt);
+        System.out.printf("문서 %s가 생성되었습니다.\n", this.name);
+        //this(String.format("제목없음%d", cnt));
     }
 
     public Document(String name) {
-
         this.name = name;
-        System.out.printf("문서 %s(이)가 생성되었습니다\n", this.name);
-
+        System.out.printf("문서 %s가 생성되었습니다.\n", this.name);
     }
 }
 

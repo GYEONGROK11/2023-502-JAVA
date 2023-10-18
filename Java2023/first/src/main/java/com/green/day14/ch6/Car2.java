@@ -9,6 +9,11 @@ public class Car2 {
 
     }
 
+    public Car2(String color) {
+        this.color = color;
+
+    }
+
     public Car2(Car2 c1) {
         color = c1.color;
         gearType = c1.gearType;
@@ -28,6 +33,7 @@ class Car2Test {
         c1.door = 5;
 
         Car2 c2 = new Car2(c1);
+        c2.door=4;
 
 
         c1.printMySelf();

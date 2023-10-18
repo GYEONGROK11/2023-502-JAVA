@@ -2,7 +2,7 @@ package extra.honjahaebogy;
 
 import java.util.Scanner;
 
-public class q2 {
+public class Q2 {
     /*
     12345 > 15 처럼 각자 자리 수를 다 더하기
     */

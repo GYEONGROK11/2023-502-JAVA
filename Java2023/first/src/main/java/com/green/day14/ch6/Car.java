@@ -8,6 +8,7 @@ public class Car {
 
     public Car(){
         this("white");
+
     }
     public Car(String color){
         this(color,"auto",4);

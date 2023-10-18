@@ -1,7 +1,7 @@
 package com.green.day14.ch6;
 
 public class CardDeck {
-    Card[] cards;
+    Card[] cards; //전역변수
 
     public CardDeck() {
         cards = new Card[52];

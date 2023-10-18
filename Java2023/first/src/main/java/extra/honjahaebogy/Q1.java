@@ -1,6 +1,6 @@
 package extra.honjahaebogy;
 
-public class q1 {
+public class Q1 {
     public static void main(String[] args) {
         final int MIN = 10, MAX = 50 ;
         int rVal = (int) (Math.random() * (MAX-MIN+1) + MIN);

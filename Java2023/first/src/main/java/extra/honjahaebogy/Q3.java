@@ -1,6 +1,6 @@
 package extra.honjahaebogy;
 
-public class q3 {
+public class Q3 {
     /* 3,6,9게임
 i=1
 i=2
