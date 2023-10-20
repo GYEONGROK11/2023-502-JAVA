@@ -7,6 +7,7 @@ public class Time {
 
     public Time() {
     }
+    //private로 선언된 멤버필드의 값을 수정할때
     //1 생성자를 이용한 값 넣기
     public Time(int hour, int minute, int second) {
         this.hour = hour;
@@ -28,7 +29,7 @@ public class Time {
     }
     public void setMinute(int minute) {
         this.minute = minute;
-    }
+    }//값을 리턴할 필요가 없어서 보이드 메소드
     public void setSecond(int second) {
         this.second = second;
     }
@@ -36,12 +37,16 @@ public class Time {
     //getter 메소드
     public int getHour() {
         return this.hour;
-    }
+    } //리턴타입은 정해짐, 파라미터 정보가없음
     public int getMinute() {
         return this.minute;
     }
     public int getSecond() {
         return this.second;
+    }
+    @Override
+    public String toString(){
+        return String.format("%02d:%02d:%02d",hour,minute,second);
     }
 }
 
@@ -52,5 +57,6 @@ class TimeTest {
         System.out.println(time);
         time.setHour(26);
         time.setMinute(1);
+        System.out.println(time);
     }
 }

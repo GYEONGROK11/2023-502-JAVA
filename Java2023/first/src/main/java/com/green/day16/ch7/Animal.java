@@ -1,6 +1,6 @@
 package com.green.day16.ch7;
 
-public class Animal {
+public class Animal { //다형성 - 상속관계에서만 나타나는 형상 - 어떤 객체 주소값을 다른 타입이 저장할 수 있다
     public void crying() {
         System.out.println("동물이 운다.");
     }
@@ -29,6 +29,7 @@ class AnimalTest {
         d3.crying();
         ani3.crying();
         //메소드 내용은 객체기준 : 불독이 왈왈
+        //메소드 내용은 객체기준 : 냥냥
     }
 }
 
@@ -55,7 +56,7 @@ class AnimalTest2 {
 
     private static void callCrying(Animal ani) {
         ani.crying();
-        if (ani instanceof Bulldog) {
+        if (ani instanceof Bulldog) { //ani를 Bulldog타입으로 형변환 가능한지
             Bulldog bull = (Bulldog)ani;
             bull.jump();
         }
