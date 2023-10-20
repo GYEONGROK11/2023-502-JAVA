@@ -13,7 +13,7 @@ public class Time {
         this.minute = minute;
         this.second = second;
     }
-    //2 메소드를 이용한 값 넣기
+    //2 메소드를 이용하여 값 넣기
     //setter 메소드
     public void setHour(final int hour) {
         if (hour > MAX_HOUR) {
@@ -32,7 +32,7 @@ public class Time {
     public void setSecond(int second) {
         this.second = second;
     }
-    //메소드를 이용한 값을 뺀다
+    //메소드를 이용하여 값을 뺀다
     //getter 메소드
     public int getHour() {
         return this.hour;
