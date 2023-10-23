@@ -1,10 +1,6 @@
 package com.green.day16.ch7;
 
-public class Animal { //다형성 - 상속관계에서만 나타나는 형상 - 어떤 객체 주소값을 다른 타입이 저장할 수 있다
-    public void crying() {
-        System.out.println("동물이 운다.");
-    }
-}
+
 
 class AnimalTest {
     public static void main(String[] args) {
@@ -19,7 +15,7 @@ class AnimalTest {
         Dog d2 = new Dog();
         //Bulldog bull2 = (Bulldog)d2 ;
         Animal ani4 = d2;
-        //3. 타입은 알고 있는 메소드만 호출할 수 있고
+        //3. 타입은(타입기준) 알고 있는 메소드만 호출할 수 있고
         Bulldog bull3 = new Bulldog();
         bull3.crying();
         bull3.jump();
@@ -48,18 +44,30 @@ class AnimalTest2 {
         System.out.println(ani2 instanceof Cat);
         //Cat cat2 = (Cat)ani2;
 
-        callCrying(bulldog);
+        callCrying(bulldog);  //다형성을 사용하는 이유 : 에니멀 타입으로 끝 - 메소드 하나로 호출가능
         callCrying(dog);
         callCrying(cat);
         callCrying(A);
     }
 
-    private static void callCrying(Animal ani) {
+    private static void callCrying(Animal ani) { //다형성을 사용하는 이유 : 에니멀 타입으로 끝 - 메소드 하나로 호출가능
         ani.crying();
-        if (ani instanceof Bulldog) { //ani를 Bulldog타입으로 형변환 가능한지
+        if (ani instanceof Bulldog) { //ani(변수,상수 : 주소값)를 Bulldog(클래스이름)타입으로 형변환 가능한지 (상속관계)
             Bulldog bull = (Bulldog)ani;
             bull.jump();
         }
+    }
+}
+
+public class Animal { //다형성 - 상속관계에서만 나타나는 형상 - 어떤 객체 주소값을 다른 타입이 저장할 수 있다
+    {
+        age = 12;
+    }
+
+    public Animal() {}
+    protected int age;
+    public void crying() {
+        System.out.println("동물이 운다.");
     }
 }
 

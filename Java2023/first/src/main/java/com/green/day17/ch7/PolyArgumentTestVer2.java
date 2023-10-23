@@ -91,11 +91,16 @@ class Buyer2 {
     private int bonusPoint;
     private int cnt;
     private int sum;
+    private int sum2;
     private Product2[] productArr;
 
     public void buy(Product2 product2) {
+        if(product2 == null){
+            System.out.println("잘못 구매하셨습니다");
+            return;
+        }
         if (cnt == productArr.length) {
-            System.out.println("그만사");
+            System.out.println("구매허용갯수 초과");
             return;
         }
         if (money < product2.getPrice()) {
@@ -109,11 +114,10 @@ class Buyer2 {
             System.out.printf("%s를 구매하셨습니다 money : %d, point: %d\n", product2.getName(), money, bonusPoint);
     }
     public void summary(){
-
         System.out.printf("총 %d만원 사용하였습니다",sum);
     }
     public Buyer2() {
-        this.money = 2000;
+        this.money = 3500;
         this.bonusPoint = 0;
         productArr = new Product2[10];
     }

@@ -22,6 +22,11 @@ class Product {
     private int price;
     private int bonusPoint;
 
+    protected Product(int price) {
+        this.price = price;
+        bonusPoint = (int) (price * 0.1);
+    }
+
     public void setPrice(int price) {
         this.price = price;
     }
@@ -38,21 +43,11 @@ class Product {
         return this.bonusPoint;
     }
 
-    public Product() {
-
-    }
-
-    protected Product(int price) {
-        this.price = price;
-        bonusPoint = (int) (price * 0.1);
-    }
-
     @Override
     public String toString() {
         return String.format("price : %d, bonusPoint : %d", price, bonusPoint);
     }
 }
-
 
 class Tv extends Product {
     public Tv() {
@@ -76,7 +71,6 @@ class Computer extends Product {
     }
 }
 
-
 class PolyArgumentTest2 {
     public static void main(String[] args) {
         Buyer buyer = new Buyer();
@@ -90,11 +84,8 @@ class PolyArgumentTest2 {
         buyer.buy(new Computer());
         System.out.println(buyer);
 
-
         //머니부족 "잔액부족 머니값 마이너스 처리 x
         //머니충족 Tv를 구입하였습니다 머니 - 포인트 +
-
-
     }
 }
 
@@ -113,13 +104,11 @@ class Buyer {
             System.out.println("잔액부족");
             return;
         }
-        System.out.printf("%s을/를 구매하셨습니다 ", product);
         this.money -= product.getPrice();
         this.bonusPoint += product.getBonusPoint();
-        System.out.printf("money : %d point : %d\n ", money,bonusPoint);
-
+        System.out.printf("%s을/를 구매하셨습니다\t ", product);
+        System.out.printf("money : %d point : %d\n ", money, bonusPoint);
     }
-
 
     Buyer() {
         this.money = 1050;
@@ -128,6 +117,6 @@ class Buyer {
 
     @Override
     public String toString() {
-        return String.format("money : %d, bonusPoint : %d", money, bonusPoint);
+        return String.format("money : %d, bonusPoint : %d\n", money, bonusPoint);
     }
 }
