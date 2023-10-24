@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 public class MyArrayList {
     private int[] arr;
-    int i;
 
     public MyArrayList() {
         arr = new int[0];
@@ -37,7 +36,7 @@ public class MyArrayList {
             r += ", " + arr[j];
         }
         r += "]";
-        return String.format(r);
+        return r;
     }
 }
 

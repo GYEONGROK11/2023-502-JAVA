@@ -37,18 +37,29 @@ class NumberBaseball {
         }
     }
 
-    private boolean isContinueCheckResult(int[] arr){
-        int strike, ball,out;
-
+    private boolean isContinueCheckResult(int[] arr) {
+        int strike = 0, ball = 0, out;
+        for (int i = 0; i < GAME_NUMVERS.length; i++) {
+            for (int j = 0; j < arr.length; j++) {
+                if (GAME_NUMVERS[i] == arr[j]) {
+                    if (i == j) {
+                        strike++;
+                    } else {
+                        ball++;
+                    }
+                }
+            }
+        }
+        out = GAME_COUNT - (strike + ball);
         return false;
     }
 
-    private void getUserInput(){
+    private void getUserInput() {
         Scanner scan = new Scanner(System.in);
         int[] userArr = new int[GAME_COUNT];
         for (int i = 0; i < GAME_COUNT; i++) {
-            System.out.printf("%d 숫자>>",i+1);
-            userArr[i]=scan.nextInt();
+            System.out.printf("%d 숫자>>", i + 1);
+            userArr[i] = scan.nextInt();
         }
         boolean r = isContinueCheckResult(userArr);
 
