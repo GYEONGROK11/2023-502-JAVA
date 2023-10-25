@@ -10,7 +10,7 @@ public class ArrayListTest {
         //ArrayList  배열사용 : 방이 추가될때마다 새로운 배열을 만들어서 배열 자체 주소값을 바꿈    읽기가 빠름
         // LinkedList  Node사용 : 방안에서 새로운 한칸의 주소값을 가르킴 (노드 한칸만 추가로 만듦) 수정 속도 빠름
 
-        //List - 인터페이스
+        //List - 인터페이스  - 추상메소드 밖에 없는 클래스 객체화안됨
         List list = new ArrayList(); // List 가 Object 타입으로 바뀜
         list.add(10);           //순차적으로 배열에 들어감
         list.add(10.3d);
