@@ -14,7 +14,7 @@ public class OperatorEx18 {
         System.out.printf("ceil(%f) >> %f\n",f2,Math.floor(f2));
         System.out.printf("ceil(%f) >> %f\n",f3,Math.floor(f3));
         System.out.printf("ceil(%f) >> %f\n",f4,Math.floor(f4));
-        //round 반올림 > round
+        //round 반올림 > int
         System.out.printf("ceil(%f) >> %d\n",f1,Math.round(f1));
         System.out.printf("ceil(%f) >> %d\n",f2,Math.round(f2));
         System.out.printf("ceil(%f) >> %d\n",f3,Math.round(f3));
