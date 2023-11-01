@@ -120,7 +120,6 @@ public class BoardDao {
     }
 
     public static BoardEntity selBoardById(int pk) {
-        BoardEntity entity = new BoardEntity();
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -132,6 +131,7 @@ public class BoardDao {
             ps.setInt(1, pk);
             rs = ps.executeQuery();
             if (rs.next()){
+                BoardEntity entity = new BoardEntity();
                 String title = rs.getString("title");
                 String ctnts = rs.getString("ctnts");
                 String writer = rs.getString("writer");
