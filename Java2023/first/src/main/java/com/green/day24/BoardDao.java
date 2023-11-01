@@ -130,6 +130,7 @@ public class BoardDao {
             ps = conn.prepareStatement(sql);
             ps.setInt(1, pk);
             rs = ps.executeQuery();
+
             if (rs.next()){
                 BoardEntity entity = new BoardEntity();
                 String title = rs.getString("title");
