@@ -1,6 +1,6 @@
 package com.green.day24;
 
-public class BoardEntity {
+public class BoardEntity { //Entity 테이블에 레코드를 온전히 담을 수 있다
     private int iboard;
     private String title;
     private String ctnts;
@@ -54,5 +54,12 @@ public class BoardEntity {
 
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("iboard : %d, title : %s, ctnts : %s" +
+                        ", writer : %s, createdAt : %s, updatedAt : %s"
+                , iboard,title,ctnts,writer,createdAt,updatedAt);
     }
 }
