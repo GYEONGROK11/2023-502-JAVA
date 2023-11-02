@@ -27,8 +27,5 @@ public class AssignmentOperators {
         n2--;
 
         System.out.printf("n1 : %d, n2 : %d, n3 : %d\n", n1, n2, n3);
-
-
-
     }
 }
