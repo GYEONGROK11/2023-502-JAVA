@@ -1,6 +1,6 @@
-package com.green.day29.normal;
+package com.green.day29.normal2;
 
-public class HansungWoofer {
+public class HansungWoofer implements Woofer{
 
 
     public void soundBase(){
