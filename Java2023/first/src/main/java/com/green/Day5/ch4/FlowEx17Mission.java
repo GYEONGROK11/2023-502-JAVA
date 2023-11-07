@@ -16,7 +16,7 @@ public class FlowEx17Mission {
          */
         for (int i = 1; i <= num; i++) {
             for (int z = num - i; z > 0; z--) {
-                System.out.print("_");
+                System.out.print(" ");
             }
             for (int z = 0; z < i; z++) {
                 System.out.print("*");
@@ -29,7 +29,7 @@ public class FlowEx17Mission {
         for (int i = num; i > 0; i--) {
             for (int z = 1; z <= num; z++) {
                 if (z < i) {
-                    System.out.print("_");
+                    System.out.print(" ");
                 } else {
                     System.out.print("*");
                 }
@@ -41,7 +41,7 @@ public class FlowEx17Mission {
 
         for (int i = num; i > 0; i--) {
             for (int z = 1; z <= num; z++) {
-                System.out.print(z < i ? "_" : "*");
+                System.out.print(z < i ? " " : "*");
             }
             System.out.println();
         }
