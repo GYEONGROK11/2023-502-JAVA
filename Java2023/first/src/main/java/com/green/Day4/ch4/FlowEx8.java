@@ -2,7 +2,8 @@ package com.green.day4.ch4;
 
 import java.util.Scanner;
 
-public class FlowEx8 {
+public class
+FlowEx8 {
     public static void main(String[] args) {
         //주민번호를 받고 여자인지 남자인지 유효하지 않은지 스위치문
         System.out.print("주민번호를 입력하세요>>");

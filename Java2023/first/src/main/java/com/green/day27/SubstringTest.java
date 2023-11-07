@@ -12,6 +12,5 @@ public class SubstringTest {
 
         System.out.println(str);    //원본값이 파괴되지 않음 비파괴 메소드
 
-
     }
 }

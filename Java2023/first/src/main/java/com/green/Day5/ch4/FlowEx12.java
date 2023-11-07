@@ -30,7 +30,5 @@ public class FlowEx12 {
         }
         System.out.println();
         System.out.println("-----------------5");
-
-
     }
 }

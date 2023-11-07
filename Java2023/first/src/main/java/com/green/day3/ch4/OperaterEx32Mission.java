@@ -17,9 +17,5 @@ public class OperaterEx32Mission {
         System.out.println("n1 : " + n1);
 
         System.out.println( n > 0 ? n:-n);
-
-
-
         }
-
     }
