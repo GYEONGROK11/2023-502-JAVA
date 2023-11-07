@@ -18,7 +18,6 @@ public class FlowEx28 {
             } else if (input == answer) {
                 break;
             }
-
         }
         System.out.print("정답");
     }
@@ -38,17 +37,11 @@ class FlowEx28_1 {
             if (input == answer) {
                 break;
             }
-
             System.out.println(input < answer ? "up" : "down");
-            /*
-
-             */
         }
         System.out.print("정답");
     }
-
 }
-
 //System.out.println("answer : " + answer);
 
         /*

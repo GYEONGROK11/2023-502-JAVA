@@ -2,7 +2,7 @@ package com.green.day7.ch4;
 
 public class BreakContinue2 {
     public static void main(String[] args) {
-        for(int i = 0; i<5 ; i++){
+        for(int i = 0; i<4 ; i++){
 
             for(int z =10; z<15; z++){
                 if(z==13){break;}
@@ -10,7 +10,7 @@ public class BreakContinue2 {
             }
         }
         System.out.println("-----------");
-        for(int i = 0; i<5 ; i++){
+        for(int i = 0; i<4 ; i++){
 
             for(int z =10; z<15; z++){
                 if(z==13){continue;}

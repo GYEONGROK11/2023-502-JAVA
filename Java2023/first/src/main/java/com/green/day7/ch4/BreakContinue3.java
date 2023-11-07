@@ -2,7 +2,7 @@ package com.green.day7.ch4;
 
 public class BreakContinue3 {
     public static void main(String[] args) {
-        abc :
+        abc : //반복문에 이름주기
         for(int i = 0; i<5 ; i++){
 
             for(int z =10; z<15; z++){

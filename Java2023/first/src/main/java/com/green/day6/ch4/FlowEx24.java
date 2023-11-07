@@ -7,7 +7,7 @@ public class FlowEx24 {
         while (i-- !=0) {
             System.out.println(i);
 
-            for(int z = 0; z<1_000 ; z++) {
+            for(int z = 0; z<5 ; z++) {
                 System.out.println("");
             }
         }
