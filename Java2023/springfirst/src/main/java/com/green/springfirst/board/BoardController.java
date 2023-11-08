@@ -1,15 +1,16 @@
 package com.green.springfirst.board;
 
+import com.green.springfirst.ResVo;
 import com.green.springfirst.board.model.BoardDetailVo;
+import com.green.springfirst.board.model.BoardInsDto;
+import com.green.springfirst.board.model.BoardUpdDto;
 import com.green.springfirst.board.model.BoardVo;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+//@RestController은 json으로 응답 @Controller은 html으로 응답
 
 @RestController //빈등록 하면서 컨트롤러의 역할도 한다 (컨트롤러 : 요청시 응답함)
 @RequiredArgsConstructor //생성자 만들기
@@ -19,8 +20,8 @@ public class BoardController {
     //@Autowired
     //private BoardService service;
 
-    @GetMapping("/board/{iboard}")
-    public BoardDetailVo getBoardDetail(@PathVariable int iboard){
+    @GetMapping("/board/{iboard}")  //{iboard}에 뭐든 받음 그것을 변수 int iboard에 넣음
+    public BoardDetailVo getBoardDetail(@PathVariable int iboard){//@PathVariable 주소값에 변수가 있음
         return service.getBoardById(iboard);
     }
 
@@ -30,7 +31,25 @@ public class BoardController {
     }
     //같은 주소값이라도 날리는 방식에 따라(get방식 post방식) 분기가능
     @PostMapping("/board")
-    public int insBoard(){
-        return 1;
+    @ResponseBody //@ResponseBody json형태로 들어오는 주소값을 응답
+    public ResVo postBoard(@RequestBody BoardInsDto dto){ //@RequestBody json형태로 들어오는 주소값을 받아줌
+        System.out.println(dto);
+        int result = service.postBoard(dto);
+        System.out.println("result :" + result);
+        return new ResVo(result);
+    }
+
+    @DeleteMapping("/board/{iboard}")  //{iboard}에 뭐든 받음 그것을 변수 int iboard에 넣음
+    public ResVo delBoard(@PathVariable int iboard){//@PathVariable 주소값에 변수가 있음
+        System.out.println(iboard);
+        int result = service.delBoard(iboard);
+        System.out.println(result);
+        return new ResVo(result);
+    }
+
+    @PutMapping("/board")  //{iboard}에 뭐든 받음 그것을 변수 int iboard에 넣음
+    public ResVo putBoard(@RequestBody BoardUpdDto dto){//@PathVariable 주소값에 변수가 있음
+        int result = service.putBoard(dto);
+        return new ResVo(result);
     }
 }

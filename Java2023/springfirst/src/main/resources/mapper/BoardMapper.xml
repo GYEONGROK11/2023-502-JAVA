@@ -2,6 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.springfirst.board.BoardMapper">
+    <insert id="insBoard">
+        INSERT INTO board
+        SET title = #{title}
+        , ctnts = #{ctnts}
+        , writer = #{writer}
+    </insert>
+
     <select id="selBoardList"> <!-- resultType="BoardVo" 원래 써야되지만 생략해줌 -->
         Select iboard, title, writer, created_at AS createdAt
         From board
@@ -13,5 +20,18 @@
         WHERE iboard = #{iboard}
     </select>
 
+    <update id="updBoard">
+        UPDATE board
+        SET title = #{title}
+        , ctnts = #{ctnts}
+        , writer = #{writer}
+        WHERE iboard = #{iboard}
+    </update>
+
+    <delete id="delBoard">
+        DELETE
+        FROM board
+        WHERE iboard = #{iboard}
+    </delete>
 
 </mapper>
