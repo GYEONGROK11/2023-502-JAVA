@@ -30,6 +30,7 @@ public class BoardController {
         return service.getBoard();
     }
     //같은 주소값이라도 날리는 방식에 따라(get방식 post방식) 분기가능
+
     @PostMapping("/board")
     @ResponseBody //@ResponseBody json형태로 들어오는 주소값을 응답
     public ResVo postBoard(@RequestBody BoardInsDto dto){ //@RequestBody json형태로 들어오는 주소값을 받아줌
