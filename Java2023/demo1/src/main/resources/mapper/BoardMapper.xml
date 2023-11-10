@@ -17,7 +17,7 @@
     <select id="selBoardId">
         SELECT iboard, title, ctnts, writer, created_at as createdAt
         FROM board
-        WHERE iboard = #{iboard}
+        WHERE iboard = #{ibo}
     </select>
 
     <delete id="delBoard">
