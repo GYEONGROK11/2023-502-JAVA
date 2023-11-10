@@ -23,6 +23,7 @@
     <update id="updBoard">
         UPDATE board
         SET title = #{title}
+        <!--컬럼명 - 멤버필드 -->
         , ctnts = #{ctnts}
         , writer = #{writer}
         WHERE iboard = #{iboard}
