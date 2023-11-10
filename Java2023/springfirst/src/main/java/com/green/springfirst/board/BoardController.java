@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController //빈등록 하면서 컨트롤러의 역할도 한다 (컨트롤러 : 요청시 응답함)
 @RequiredArgsConstructor //생성자 만들기
-@RequestMapping("/api/borad") //주소값 통일  @*Mapping뒤에 주소값을 자동으로 넣어줌
+@RequestMapping("/api/board") //주소값 통일  @*Mapping뒤에 주소값을 자동으로 넣어줌
 public class BoardController {
     private final BoardService service;
 
