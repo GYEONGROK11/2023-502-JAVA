@@ -4,9 +4,12 @@
 <mapper namespace="com.green.greengram.user.UserMapper">
     <insert id="insUser">
         INSERT INTO t_user
-        (uid, upw, nm, pic)
-        VALUES
-        (#{uid}, #{upw}, #{nm}, #{pic})
+        SET uid = #{uid}
+        , upw = #{upw}
+        , nm = #{nm}
+        <if test="pic != null and pic != '' ">
+            , pic = #{pic}
+        </if>
     </insert>
 
     <select id="selUserByUid">
