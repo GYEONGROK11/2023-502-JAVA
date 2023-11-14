@@ -19,6 +19,12 @@ public class FeedService {
         int result2 =mapper.insFeedPic(fDto);
         return new ResVo(pDto.getIfeed());
     }
+
+    /*public List<FeedSelVo> getFeed(int page){
+        FeedSelDto dto = new FeedSelDto(page);
+        return mapper.selFeed(dto);
+    }*/
+
     public List<FeedSelVo> getFeed(int page){
         final int ROW_COUNT = 20;
         FeedSelDto dto = FeedSelDto.builder()

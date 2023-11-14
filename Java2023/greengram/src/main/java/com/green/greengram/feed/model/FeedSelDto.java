@@ -8,4 +8,10 @@ import lombok.Getter;
 public class FeedSelDto {
     private int startIdx;
     private int rowCount;
+    /*private final int rowCount = 20;
+
+    public FeedSelDto(int page){
+        startIdx = (page - 1) * rowCount;
+    }*/
+
 }
