@@ -1,9 +1,8 @@
 package com.green.greengram.user;
 
+
 import com.green.greengram.ResVo;
-import com.green.greengram.user.model.UserDto;
-import com.green.greengram.user.model.UserInsDto;
-import com.green.greengram.user.model.UserSigninDto;
+import com.green.greengram.user.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,36 +16,37 @@ public class UserService {
     private final UserMapper mapper;
 
 
-    public int postUserIns(UserInsDto dto) {
-        return mapper.insUser(dto);
+    public ResVo insUser(UserInsDto dto) {
+        int result = mapper.insUser(dto);
+        return new ResVo(result);
     }
 
     public List<UserDto> selUser() {
-
         return mapper.selUser();
     }
 
-    public ResVo signin(UserSigninDto dto) {
-        /*int result = 3;
-        String savedUpw = mapper.selUserByUid(dto.getUid());
-        if (savedUpw == null) {
-            result = 2;
-        } else if (savedUpw.equals(dto.getUpw())) {
-            result = 1;
+    public UserSigninVo signin(UserSigninDto dto) {
+        UserSigninVo vo = new UserSigninVo();
+        vo.setResult(3);
+
+        UserSigninProcVo procVo = mapper.selUserByUid(dto.getUid());
+        if(procVo == null) {
+            vo.setResult(2);
+        } else if(procVo.getUpw().equals(dto.getUpw())) {
+            vo.setIuser(procVo.getIuser());
+            vo.setNm(procVo.getNm());
+            vo.setPic(procVo.getPic());
+            vo.setResult(1);
         }
-        System.out.println("savedUpw : " + savedUpw);*/
-        List<UserDto> udto= mapper.selUser();
-            int result =2;
+        return vo;
+        /*List<UserDto> udto= mapper.selUser();
+            vo.setResult(2);
             for(UserDto a : udto){
                 if(a.getUid().equals(dto.getUid()) && a.getUpw() .equals(dto.getUpw())){
-                    result = 1;
-                    new ResVo(result);
+                    vo.setResult(1);
                 } else if(a.getUid().equals(dto.getUid())&&!(a.getUpw() .equals(dto.getUpw()))){
-                    result = 3;
-                    new ResVo(result);
+                    vo.setResult(3);
                 }
-            }
-            System.out.println(result);
-            return new ResVo(result);
+            }*/
         }
     }

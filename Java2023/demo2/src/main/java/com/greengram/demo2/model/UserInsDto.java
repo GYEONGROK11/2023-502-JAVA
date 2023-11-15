@@ -1,7 +1,6 @@
-package com.green.greengram.user.model;
+package com.greengram.demo2.model;
 
 import lombok.Data;
-import lombok.Getter;
 
 @Data
 public class UserInsDto {
@@ -9,6 +8,4 @@ public class UserInsDto {
     private String upw;
     private String nm;
     private String pic;
-
-
 }

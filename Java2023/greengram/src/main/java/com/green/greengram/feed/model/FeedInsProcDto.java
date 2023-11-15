@@ -9,7 +9,8 @@ import lombok.ToString;
 @Setter
 @ToString
 public class FeedInsProcDto {
-    private int ifeed;
+    private int ifeed;  //박스갈이한 이유 ifeed pk는 레코드가 저장될때 주어진다    스웨거 - 처음보낼때 ifeed가 있어야됨
+                        //그 작업에 필요한 애들만 사용 (정규화개념으로 쪼개서 사용)
     private int iuser;
     private String contents;
     private String location;

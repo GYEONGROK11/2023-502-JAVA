@@ -4,7 +4,7 @@
 <mapper namespace="com.green.greengram.feed.FeedMapper">
     <insert id="insFeed"
             useGeneratedKeys="true"
-            keyProperty="ifeed">
+            keyProperty="ifeed"><!--useGeneratedKeys="true" 오토인클리먼트값을 사용하겠다 keyProperty="ifeed"여기다가 값을 넣음-->
         INSERT INTO t_feed
         SET iuser = #{iuser}
         , contents = #{contents}
@@ -24,14 +24,40 @@
     </insert>
 
     <select id="selFeed">
-        SELECT f.ifeed, f.contents, f.location, u.iuser, u.nm as writer, f.created_at as createdAt
-        FROM t_user u
-        JOIN t_feed f
+        SELECT f.ifeed, f.contents, f.location, f.created_at as createdAt
+        , u.iuser , u.nm as writer
+        , IF(fv.ifeed >0,1,0) as isFav
+        FROM t_feed f
+        JOIN t_user u
         ON f.iuser=u.iuser
-        ORDER BY ifeed DESC
+        LEFT JOIN t_favorite fv
+        ON f.ifeed = fv.ifeed
+        AND fv.iuser = #{iuser}
+        ORDER BY f.ifeed DESC
         LIMIT #{startIdx}, #{rowCount}
+    </select>
+
+    <select id="selFeedPics">
+        SELECT ifeed, pic
+        FROM t_feed_pic
+        WHERE ifeed in
+        <foreach collection="list" item="ifeed" open="(" close=")" separator=",">
+            #{ifeed}
+        </foreach>
 
     </select>
 
+    <!-- t_favorite-->
+    <delete id="delFeedFav">
+        DELETE
+        FROM t_favorite
+        WHERE
+        ifeed = #{ifeed} AND iuser = #{iuser}
+    </delete>
+    <insert id="insFeedFav">
+        INSERT INTO t_favorite
+        SET ifeed = #{ifeed}
+        , iuser = #{iuser}
 
+    </insert>
 </mapper>
