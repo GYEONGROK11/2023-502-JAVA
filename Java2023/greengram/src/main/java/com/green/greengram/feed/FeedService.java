@@ -38,10 +38,11 @@ public class FeedService {
     }*/
 
 
-    public List<FeedSelVo> getFeed(int page, int iuser){
+    public List<FeedSelVo> getFeed(int page, int loginedIuser, int targetIuser){
         final int ROW_COUNT = 5;
         FeedSelDto dto = FeedSelDto.builder() // 빌더패턴 : 값넣기 편함, 원하는 것에 넣을 수 있음, 생성자로도 가능 생성자는 순서 맞춰야됨
-                .iuser(iuser)
+                .loginedIuser(loginedIuser)
+                .targetIuser(targetIuser)
                 .startIdx((page - 1) * ROW_COUNT)
                 .rowCount(ROW_COUNT)
                 .build();

@@ -2,6 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.greengram.feed.FeedMapper">
+    <select id="selFeed">
+        SELECT f.ifeed, f.contents, f.location, f.created_at as createdAt
+        , u.iuser , u.nm as writer
+        , IF(fv.ifeed >0,1,0) as isFav
+        FROM t_feed f
+        JOIN t_user u
+        ON f.iuser=u.iuser
+        LEFT JOIN t_favorite fv
+        ON f.ifeed = fv.ifeed
+        AND fv.iuser = #{loginedIuser}
+        <if test="targetIuser > 0">
+            WHERE f.iuser = #{targetIuser}
+        </if>
+        ORDER BY f.ifeed DESC
+        LIMIT #{startIdx}, #{rowCount}
+    </select>
+
     <insert id="insFeed"
             useGeneratedKeys="true"
             keyProperty="ifeed"><!--useGeneratedKeys="true" 오토인클리먼트값을 사용하겠다 keyProperty="ifeed"여기다가 값을 넣음-->
@@ -10,9 +27,9 @@
         , contents = #{contents}
         , location = #{location}
     </insert>
-
+    <!-- 셀렉을 합치려면 iuser 값이 두개 필요함 로그인한 사람과 프로필 주인 두개 필요함  분기 조건은 보고자하는 프로필 주인-->
     <insert id="insFeedPic">
-        INSERT INTO t_feed_pic
+        INSERT INTO t_feed_pics
         (ifeed, pic)
         VALUES
         <!-- <foreach collection="pics" item="pic" open="(" close=")" separator="), (">
@@ -23,23 +40,9 @@
         </foreach>
     </insert>
 
-    <select id="selFeed">
-        SELECT f.ifeed, f.contents, f.location, f.created_at as createdAt
-        , u.iuser , u.nm as writer
-        , IF(fv.ifeed >0,1,0) as isFav
-        FROM t_feed f
-        JOIN t_user u
-        ON f.iuser=u.iuser
-        LEFT JOIN t_favorite fv
-        ON f.ifeed = fv.ifeed
-        AND fv.iuser = #{iuser}
-        ORDER BY f.ifeed DESC
-        LIMIT #{startIdx}, #{rowCount}
-    </select>
-
     <select id="selFeedPics">
         SELECT ifeed, pic
-        FROM t_feed_pic
+        FROM t_feed_pics
         WHERE ifeed in
         <foreach collection="list" item="ifeed" open="(" close=")" separator=",">
             #{ifeed}

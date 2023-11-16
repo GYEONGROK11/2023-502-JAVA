@@ -1,10 +1,7 @@
 package com.green.greengram.user;
 
 import com.green.greengram.ResVo;
-import com.green.greengram.user.model.UserDto;
-import com.green.greengram.user.model.UserInsDto;
-import com.green.greengram.user.model.UserSigninDto;
-import com.green.greengram.user.model.UserSigninVo;
+import com.green.greengram.user.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,5 +28,10 @@ public class UserController {
     @GetMapping
     public List<UserDto> seluser(){
         return service.selUser();
+    }
+
+    @GetMapping("/{targetIuser}")
+    public UserProfileInfoVo getUserProfileInfo(@PathVariable int targetIuser){
+        return service.getUserProfileInfo(targetIuser);
     }
 }

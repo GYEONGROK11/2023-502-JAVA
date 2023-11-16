@@ -25,6 +25,10 @@ public class UserService {
         return mapper.selUser();
     }
 
+    public UserProfileInfoVo getUserProfileInfo(int target){
+        return mapper.selUserProfileInfo(target);
+    }
+
     public UserSigninVo signin(UserSigninDto dto) {
         UserSigninVo vo = new UserSigninVo();
         vo.setResult(3);
