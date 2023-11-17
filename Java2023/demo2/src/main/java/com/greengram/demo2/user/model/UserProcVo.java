@@ -1,4 +1,4 @@
-package com.greengram.demo2.model;
+package com.greengram.demo2.user.model;
 
 import lombok.Data;
 

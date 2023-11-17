@@ -1,8 +1,8 @@
-package com.greengram.demo2;
+package com.greengram.demo2.user;
 
 
-import com.greengram.demo2.model.UserInsDto;
-import com.greengram.demo2.model.UserProcVo;
+import com.greengram.demo2.user.model.UserInsDto;
+import com.greengram.demo2.user.model.UserProcVo;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

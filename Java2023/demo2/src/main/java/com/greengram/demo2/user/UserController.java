@@ -1,9 +1,9 @@
-package com.greengram.demo2;
+package com.greengram.demo2.user;
 
 import com.greengram.ResVo;
-import com.greengram.demo2.model.UserInsDto;
-import com.greengram.demo2.model.UserSignDto;
-import com.greengram.demo2.model.UserSignVo;
+import com.greengram.demo2.user.model.UserInsDto;
+import com.greengram.demo2.user.model.UserSignDto;
+import com.greengram.demo2.user.model.UserSignVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

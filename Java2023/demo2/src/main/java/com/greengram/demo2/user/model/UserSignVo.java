@@ -1,4 +1,4 @@
-package com.greengram.demo2.model;
+package com.greengram.demo2.user.model;
 
 import lombok.Data;
 
@@ -7,6 +7,5 @@ public class UserSignVo {
     private int result;
     private int iuser;
     private String nm;
-    private String upw;
     private String pic;
 }
