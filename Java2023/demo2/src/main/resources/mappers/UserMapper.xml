@@ -2,18 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.greengram.demo2.user.UserMapper">
-    <insert id="insUser">
+
+    <insert id="userSignUp">
         INSERT INTO t_user
         SET uid = #{uid}
         , upw = #{upw}
         , nm = #{nm}
         <if test="pic != null and pic != '' ">
-        , pic = #{pic}
+            , pic = #{pic}
         </if>
     </insert>
 
-    <select id="login">
-        SELECT upw, nm, pic, iuser
+    <select id="userSignIn">
+        SELECT upw, iuser, nm, created_at as createdAt, pic
         FROM t_user
         WHERE uid = #{uid}
     </select>

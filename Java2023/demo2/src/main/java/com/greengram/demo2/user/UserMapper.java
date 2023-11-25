@@ -1,14 +1,15 @@
 package com.greengram.demo2.user;
 
-
-import com.greengram.demo2.user.model.UserInsDto;
-import com.greengram.demo2.user.model.UserProcVo;
+import com.greengram.demo2.user.model.UserSignInDto;
+import com.greengram.demo2.user.model.UserSignInProc;
+import com.greengram.demo2.user.model.UserSignInVo;
+import com.greengram.demo2.user.model.UserSignUpDto;
 import org.apache.ibatis.annotations.Mapper;
+
 
 @Mapper
 public interface UserMapper {
-    int insUser(UserInsDto dto);
+    int userSignUp(UserSignUpDto dto);
 
-    UserProcVo login(String uid);
-
+    UserSignInProc userSignIn(String uid);
 }

@@ -3,9 +3,10 @@ package com.greengram.demo2.user.model;
 import lombok.Data;
 
 @Data
-public class UserInsDto {
-    private String uid;
-    private String upw;
+public class UserSignInVo {
+    private int result;
+    private int iuser;
     private String nm;
+    private String createdAt;
     private String pic;
 }

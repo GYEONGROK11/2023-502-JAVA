@@ -1,11 +1,9 @@
 package com.greengram.demo2.feed;
 
-
 import com.greengram.ResVo;
 import com.greengram.demo2.feed.model.FeedInsDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,8 +14,10 @@ public class FeedController {
     private final FeedService service;
 
     @PostMapping
-    public ResVo insFeed(@RequestBody FeedInsDto dto){
-        ResVo result = service.insFeed(dto);
-        return result;
+    public ResVo feedIns(FeedInsDto dto){
+
+        return new ResVo(service.feedIns(dto));
     }
+
+
 }
