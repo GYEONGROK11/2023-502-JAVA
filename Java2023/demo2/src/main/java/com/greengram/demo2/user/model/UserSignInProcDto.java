@@ -3,13 +3,10 @@ package com.greengram.demo2.user.model;
 import lombok.Data;
 
 @Data
-public class UserSignInProc {
-    private String upw;
-    private String uid;
-    private int result;
+public class UserSignInProcDto {
     private int iuser;
+    private String uid;
+    private String upw;
     private String nm;
-    private String createdAt;
     private String pic;
-
 }

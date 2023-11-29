@@ -1,9 +1,12 @@
 package com.greengram.demo2.user.model;
 
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
 
-@Data
-public class UserSignUpDto {
+@Getter
+@Builder
+public class UserSignUpProcDto {
+    private int iuser;
     private String uid;
     private String upw;
     private String nm;

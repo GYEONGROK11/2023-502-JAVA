@@ -2,6 +2,40 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.greengram.demo2.feed.FeedMapper">
+
+    <select id="feedAllSel">
+        SELECT B.ifeed, A.iuser, B.contents, B.location, A.nm
+        , B.created_at AS createdAt ,A.pic
+        , IF(C.ifeed>0,1,0) AS isFav
+        FROM t_user A
+        JOIN t_feed B
+        ON A.iuser = B.iuser
+        LEFT JOIN t_favorite C
+        ON B.ifeed = C.ifeed
+        AND C.iuser = #{loginedIuser}
+        <if test="targetIuser > 0">
+            WHERE B.iuser = #{targetIuser}
+        </if>
+        ORDER BY B.ifeed DESC
+        LIMIT #{startIdx}, #{rowCount}
+    </select>
+
+    <select id="feedCommentSel">
+        SELECT B.ifeed_comment AS ifeedComment, B.comment,
+        A.nm , A.pic, A.iuser, B.created_at as createdAt
+        FROM t_user A
+        JOIN t_feed_comment B
+        ON A.iuser = B.iuser
+        WHERE B.ifeed = #{ifeed}
+        LIMIT #{startIdx}, #{rowCount}
+    </select>
+
+    <select id="feedSelPic">
+        SELECT pic
+        FROM t_feed_pics
+        WHERE ifeed = #{ifeed}
+    </select>
+
     <insert id="feedIns" useGeneratedKeys="true" keyProperty="ifeed">
         INSERT INTO t_feed
         SET iuser = #{iuser}
@@ -9,14 +43,74 @@
         , location = #{location}
     </insert>
 
-    <insert id="feedInsPics">
+    <insert id="feedInsPic">
         INSERT INTO t_feed_pics
         (ifeed, pic)
         VALUES
         <foreach collection="pics" item="pic" open="(" close=")" separator="),(">
-            #{ifeed}, #{pic}
+            #{ifeed},#{pic}
         </foreach>
-
     </insert>
+
+    <insert id="feedInsFav">
+        INSERT INTO t_favorite
+        SET iuser = #{iuser}
+        , ifeed = #{ifeed}
+    </insert>
+
+    <select id="selFeedIuser">
+        SELECT iuser
+        FROM t_feed
+        WHERE ifeed = #{ifeed}
+        AND iuser = #{iuser}
+    </select>
+
+    <delete id="feedDelFav">
+        DELETE
+        FROM t_favorite
+        WHERE iuser = #{iuser}
+        AND ifeed = #{ifeed}
+    </delete>
+    <delete id="feedDelComment">
+        DELETE
+        FROM t_feed_comment
+        WHERE ifeed_comment = #{ifeedComment}
+        AND iuser = #{loginedIuser}
+    </delete>
+
+    <insert id="feedComment" useGeneratedKeys="true" keyProperty="ifeedComment">
+        INSERT INTO t_feed_comment
+        SET iuser = #{iuser}
+        , ifeed = #{ifeed}
+        , comment = #{comment}
+        <if test="pic != null and pic != ''">
+            ,pic = #{pic}
+        </if>
+    </insert>
+
+    <delete id="feedDel">
+        DELETE
+        FROM t_feed
+        WHERE ifeed = #{ifeed}
+        AND iuser = #{iuser}
+    </delete>
+
+    <delete id="feedCommentDel">
+        DELETE
+        FROM t_feed_comment
+        WHERE ifeed = #{ifeed}
+    </delete>
+
+    <delete id="feedPicDel">
+        DELETE
+        FROM t_feed_pics
+        WHERE ifeed = #{ifeed}
+    </delete>
+
+    <delete id="feedFavDel">
+        DELETE
+        FROM t_favorite
+        WHERE ifeed = #{ifeed}
+    </delete>
 
 </mapper>

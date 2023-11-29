@@ -2,29 +2,28 @@ package com.greengram.demo2.user;
 
 
 import com.greengram.ResVo;
-import com.greengram.demo2.user.model.UserSignInDto;
-import com.greengram.demo2.user.model.UserSignInVo;
-import com.greengram.demo2.user.model.UserSignUpDto;
+import com.greengram.demo2.user.model.*;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/user")
 public class UserController {
-    private final UserService service;
+   private final UserService service;
 
-    @PostMapping("/signup")
-    public ResVo userSignUp(@RequestBody UserSignUpDto dto){
+   @GetMapping
+   public UserInfoVo userInfo(int targetIuser){
+       return service.userInfo(targetIuser);
+   }
 
-        return new ResVo(service.userSignUp(dto));
-    }
+   @PostMapping("/signup")
+   public ResVo usersignUp(@RequestBody UserSignUpDto dto){
+       return service.userSignUp(dto);
+   }
 
-    @PostMapping
-    public UserSignInVo userSignIn(@RequestBody UserSignInDto dto){
+   @PostMapping("/signin")
+   public UserSignInVo userSignIn(@RequestBody UserSignInDto dto){
         return service.userSignIn(dto);
-    }
+   }
 }
