@@ -7,10 +7,7 @@ import lombok.Data;
 public class UserInsDto {
     @JsonIgnore
     private int iuser;
-
     private String nm;
-
     private String uid;
-
     private String upw;
 }
