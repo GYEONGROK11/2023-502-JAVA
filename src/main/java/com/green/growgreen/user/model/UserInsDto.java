@@ -11,5 +11,6 @@ public class UserInsDto {
     private String nm;
 
     private String uid;
+
     private String upw;
 }
