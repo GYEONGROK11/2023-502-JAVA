@@ -9,6 +9,7 @@ public class UserInsDto {
     private int iuser;
 
     private String nm;
+
     private String uid;
     private String upw;
 }
