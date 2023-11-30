@@ -6,7 +6,7 @@
         INSERT INTO t_user
         SET nm = #{nm}
         , uid = #{uid}
-        , upw = #{upw}
+        , upw = #{upw}1
     </insert>
 
 </mapper>
